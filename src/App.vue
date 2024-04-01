@@ -1,8 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import {useCartStore} from './store/cart.js';
+const cartStore = useCartStore()
 </script>
 
 <template>
+  <pre>{{cartStore.products}}</pre>
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
