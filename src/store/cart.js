@@ -13,6 +13,11 @@ export const useCartStore = defineStore('cart', {
       }
     ]
   }),
-  actions: {},
-  getters: {},
+  actions: {
+    addProduct() {},
+    removeProduct() {}
+  },
+  getters: {
+    total: () => 110
+  },
 })
