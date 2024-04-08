@@ -2,26 +2,31 @@
   <div>
     <h1>Curso de Pinia</h1>
     <h4>User store</h4>
-    <input type="text" v-model="userStore.user.first_name">
+    <input type="text" v-model="user.first_name">
     <pre>
-      {{ userStore.user }}
+      {{ user }}
     </pre>
+    <button @click="changeFirstName('Test')">Change first name</button>
     <br><br>
     <h4>Cart store</h4>
-    <pre>{{cartStore.products}}</pre>
+    <pre>{{products}}</pre>
   </div>
 </template>
 
-<script setup>
+<script>
+import {mapState, mapWritableState} from 'pinia';
 import {useUserStore} from './store/user.js';
 import {useCartStore} from './store/cart.js';
 
-const userStore = useUserStore();
-const cartStore = useCartStore();
-
-cartStore.products[0].name = 'Iphone 15'
-cartStore.products.push({
-  name: 'iMac',
-  amount: 200
-},)
+export default {
+  computed: {
+    ...mapWritableState(useUserStore, ['user']),
+    ...mapState(useCartStore, ['products'])
+  },
+  methods: {
+    changeFirstName(name) {
+      this.user.first_name = name
+    }
+  }
+}
 </script>
