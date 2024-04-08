@@ -3,36 +3,29 @@
     <h1>Curso de Pinia</h1>
     <h4>User store</h4>
     <pre>
-      {{userStore.user}}
+      {{ userStore }}
+    </pre>
+    <pre>
+      {{ fullName }}
     </pre>
     <br><br>
     <h4>Cart store</h4>
-    <pre>{{cartStore.products}}</pre>
+    <pre>{{products}}</pre>
   </div>
 </template>
 
-<script setup>
+<script>
+import {mapState} from 'pinia';
 import {useUserStore} from './store/user.js';
 import {useCartStore} from './store/cart.js';
 
-const userStore = useUserStore();
-const cartStore = useCartStore();
+export default {
+  computed: {
+    ...mapState(useUserStore, {
+      userStore: 'user',
+      fullName: store => `${store.user.first_name} ${store.user.last_name}`,
+    }),
+    ...mapState(useCartStore, ['products'])
+  }
+}
 </script>
-
-
-<!--<script>-->
-<!--import {useUserStore} from './store/user.js';-->
-<!--import {useCartStore} from './store/cart.js';-->
-
-<!--export default {-->
-<!--  setup() {-->
-<!--    const userStore = useUserStore();-->
-<!--    const cartStore = useCartStore();-->
-
-<!--    return {-->
-<!--      userStore,-->
-<!--      cartStore-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
