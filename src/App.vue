@@ -1,36 +1,38 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import {useCartStore} from './store/cart.js';
-import {useUserStore} from './store/user.js';
-
-const cartStore = useCartStore()
-const userStore = useUserStore()
-</script>
-
 <template>
-  <pre>{{cartStore.total}}</pre>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1>Curso de Pinia</h1>
+    <h4>User store</h4>
+    <pre>
+      {{userStore.user}}
+    </pre>
+    <br><br>
+    <h4>Cart store</h4>
+    <pre>{{cartStore.products}}</pre>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup>
+import {useUserStore} from './store/user.js';
+import {useCartStore} from './store/cart.js';
+
+const userStore = useUserStore();
+const cartStore = useCartStore();
+</script>
+
+
+<!--<script>-->
+<!--import {useUserStore} from './store/user.js';-->
+<!--import {useCartStore} from './store/cart.js';-->
+
+<!--export default {-->
+<!--  setup() {-->
+<!--    const userStore = useUserStore();-->
+<!--    const cartStore = useCartStore();-->
+
+<!--    return {-->
+<!--      userStore,-->
+<!--      cartStore-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
