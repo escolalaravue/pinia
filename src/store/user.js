@@ -14,6 +14,11 @@ export const useUserStore = defineStore('user', () => {
   })
 
   // Actions
+  function $reset() {
+    firstName.value = 'Jon'
+    lastName.value = 'Snow'
+    age.value = 30
+  }
   function changeName(name) {
     user.value.first_name = name
   }
@@ -25,6 +30,7 @@ export const useUserStore = defineStore('user', () => {
     firstName,
     lastName,
     age,
+    $reset,
 
     user,
     changeName,

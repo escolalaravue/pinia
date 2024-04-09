@@ -4,10 +4,13 @@
     <h4>User store</h4>
     {{ userStore.firstName }} <br>
     {{ userStore.lastName }} <br>
-    {{ userStore.age }}
+    {{ userStore.age }} <br>
+    <button @click="userStore.$reset">Resetar store user</button>
+
     <br><br>
     <h4>Cart store</h4>
     <pre>{{cartStore.products}}</pre>
+    <button @click="cartStore.$reset">Resetar store cart</button>
   </div>
 </template>
 
