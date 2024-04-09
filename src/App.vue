@@ -24,17 +24,21 @@ import {watch} from 'vue';
 const userStore = useUserStore();
 const cartStore = useCartStore();
 
-watch(userStore, (vl) => {
-  console.log(vl)
-})
-
-watch(() => userStore.firstName, (vl) => {
-  console.log(vl)
-})
+// watch(userStore, (vl) => {
+//   console.log(vl)
+// })
+//
+// watch(() => userStore.firstName, (vl) => {
+//   console.log(vl)
+// })
 
 userStore.$patch({
   firstName: 'Tiago',
   lastName: 'Matos',
+})
+
+cartStore.$subscribe((mutation, state) => {
+  console.log(mutation, state)
 })
 
 cartStore.$patch((state) => {
