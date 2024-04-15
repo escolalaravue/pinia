@@ -12,7 +12,14 @@ export const useCartStore = defineStore('cart', {
         this.products.push(product)
       }
     },
-    removeProduct() {}
+    removeProduct(product) {
+      // Primeira forma de remover
+      // const idx = this.products.findIndex(o => o.id === product.id)
+      // this.products.splice(idx, 1)
+
+      // Segunda forma de remover
+      this.products = this.products.filter(o => o.id !== product.id)
+    }
   },
   getters: {
     total: (state) => state.products.reduce((total, obj) => total += obj.amount, 0),

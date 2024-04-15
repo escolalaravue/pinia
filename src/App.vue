@@ -12,7 +12,7 @@
       >
         {{ product.name }} <br>
         R$ {{ product.amount }} <br>
-        <button>Remover</button>
+        <button @click="removeFromCart(product)">Remover</button>
       </div>
     </div>
 
@@ -59,6 +59,10 @@ const products = ref([
 
 function addToCart(product) {
   cartStore.addProduct(product)
+}
+
+function removeFromCart(product) {
+  cartStore.removeProduct(product)
 }
 </script>
 
