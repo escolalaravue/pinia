@@ -3,19 +3,15 @@ import {defineStore} from 'pinia';
 export const useCartStore = defineStore('cart', {
   state: () => ({
     address: {},
-    products: [
-      {
-        name: 'Iphone',
-        amount: 10
-      },
-      {
-        name: 'Macbook',
-        amount: 100
-      }
-    ]
+    products: []
   }),
   actions: {
-    addProduct() {},
+    addProduct(product) {
+      // AJAX
+      if (!this.products.some(o => o.id === product.id)) {
+        this.products.push(product)
+      }
+    },
     removeProduct() {}
   },
   getters: {
