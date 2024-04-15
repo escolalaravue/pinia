@@ -20,5 +20,9 @@ export const useCartStore = defineStore('cart', {
   },
   getters: {
     total: (state) => state.products.reduce((total, obj) => total += obj.amount, 0),
+
+    getProductByName: (state) => {
+      return (name) => state.products.find(o => o.name === name)
+    }
   },
 })
