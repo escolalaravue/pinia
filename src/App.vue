@@ -1,33 +1,20 @@
 <template>
   <div>
     <h1>Curso de Pinia</h1>
-    {{ userStore.fullName }} <br>
-    <input
-        v-model="userStore.user.first_name"
-        type="text"
-    >
-    <br><br><br><br>
     <div>
-      TOTAL: {{ cartStore.total }}
+      TOTAL: {{ total }}
     </div>
-    {{ cartStore.getProductByName('Macbook') }}
-    <br>
-    <button
-        @click="changeIphoneValue(100)"
-    >
-      Alterar valor Iphone
-    </button>
+    {{ getProductByName('Macbook') }}
   </div>
 </template>
 
-<script setup>
+<script>
 import {useCartStore} from './store/cart.js';
-import {useUserStore} from './store/user.js';
+import {mapState} from 'pinia';
 
-const userStore = useUserStore()
-const cartStore = useCartStore();
-
-function changeIphoneValue(vl) {
-  cartStore.products[0].amount = vl
+export default {
+  computed: {
+    ...mapState(useCartStore, ['total', 'getProductByName'])
+  },
 }
 </script>
