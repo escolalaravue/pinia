@@ -2,8 +2,9 @@
   <div>
     <h1>Curso de Pinia</h1>
     <h4>User store</h4>
-    <input type="text" v-model="userStore.firstName"> <br>
-    <input type="text" v-model="userStore.lastName"> <br>
+    {{firstName}} <br>
+    <input type="text" v-model="firstName"> <br>
+    <input type="text" v-model="lastName"> <br>
     {{ userStore.firstName }} <br>
     {{ userStore.lastName }} <br>
     {{ userStore.age }} <br>
@@ -20,31 +21,9 @@
 import {useUserStore} from './store/user.js';
 import {useCartStore} from './store/cart.js';
 import {watch} from 'vue';
+import {storeToRefs} from 'pinia';
 
 const userStore = useUserStore();
+const {firstName, lastName} = storeToRefs(userStore)
 const cartStore = useCartStore();
-
-// watch(userStore, (vl) => {
-//   console.log(vl)
-// })
-//
-// watch(() => userStore.firstName, (vl) => {
-//   console.log(vl)
-// })
-
-userStore.$patch({
-  firstName: 'Tiago',
-  lastName: 'Matos',
-})
-
-cartStore.$subscribe((mutation, state) => {
-  console.log(mutation, state)
-})
-
-cartStore.$patch((state) => {
-  state.products.push({
-    name: 'iMac',
-    amount: 100
-  })
-})
 </script>
