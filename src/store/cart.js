@@ -11,7 +11,14 @@ export const useCartStore = defineStore('cart', {
       if (!this.products.some(o => o.id === product.id)) {
         this.products.push(product)
       }
+
+      return new Promise((resolve) => {
+        return setTimeout(() => {
+          resolve('OK')
+        }, 2000)
+      })
     },
+
     removeProduct(product) {
       // Primeira forma de remover
       // const idx = this.products.findIndex(o => o.id === product.id)
