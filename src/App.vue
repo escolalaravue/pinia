@@ -2,7 +2,7 @@
   <div>
     <h1>Curso de Pinia</h1>
 
-    <h3>Carrinho</h3>
+    <h3>Carrinho {{ cartStore.total }}</h3>
 
     <div class="cart">
       <div
@@ -64,6 +64,7 @@ function addToCart(product) {
 function removeFromCart(product) {
   cartStore.removeProduct(product)
 }
+
 </script>
 
 <style>
