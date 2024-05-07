@@ -313,7 +313,10 @@
 </template>
 
 <script setup>
+import {useServiceOrderStore} from './store/serviceOrder.js';
 import {ref} from 'vue';
+
+const serviceOrderStore = useServiceOrderStore()
 
 const menu2 = ref(false)
 const date = ref(null)
