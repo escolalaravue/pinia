@@ -2,7 +2,11 @@ import {defineStore} from 'pinia';
 
 export const useServiceOrderStore = defineStore('serviceOrder', {
   state: () => ({
-    orderDetails: {},
+    orderDetails: {
+      number: 0,
+      due_date: null,
+      status: ''
+    },
     client: {},
     services: [],
     description: '',
