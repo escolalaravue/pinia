@@ -12,7 +12,13 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
       phone: '',
       email: '',
     },
-    services: [],
+    services: [
+      {
+        description: '',
+        price: 0,
+        qty: 0,
+      },
+    ],
     description: '',
     discount_type: 'R$',
     discount_value: 0
