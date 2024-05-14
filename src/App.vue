@@ -25,38 +25,7 @@
           </v-row>
 
           <div class="mt-8">
-            <h2 class="mb-2">Dados do cliente</h2>
-            <v-row>
-              <v-col>
-                <v-text-field
-                    label="Nome"
-                    variant="outlined"
-                    density="compact"
-                    prepend-inner-icon="mdi-account"
-                    hide-details
-                />
-              </v-col>
-
-              <v-col>
-                <v-text-field
-                    label="Telefone"
-                    variant="outlined"
-                    density="compact"
-                    prepend-inner-icon="mdi-phone"
-                    hide-details
-                />
-              </v-col>
-
-              <v-col>
-                <v-text-field
-                    label="Email"
-                    variant="outlined"
-                    prepend-inner-icon="mdi-email"
-                    density="compact"
-                    hide-details
-                />
-              </v-col>
-            </v-row>
+            <OSClient />
           </div>
 
           <div class="mt-8">
@@ -268,6 +237,7 @@
 import {useServiceOrderStore} from './store/serviceOrder.js';
 import {ref} from 'vue';
 import OSDetails from './components/OSDetails.vue';
+import OSClient from './components/OSClient.vue';
 
 const serviceOrderStore = useServiceOrderStore()
 </script>

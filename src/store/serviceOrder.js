@@ -7,7 +7,11 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
       due_date: null,
       status: ''
     },
-    client: {},
+    client: {
+      name: '',
+      phone: '',
+      email: '',
+    },
     services: [],
     description: '',
     discount_type: 'R$',
