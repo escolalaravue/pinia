@@ -43,41 +43,7 @@
               </v-col>
 
               <v-col>
-                <v-card>
-                  <v-table>
-                    <tbody>
-                    <tr>
-                      <td><b>Subtotal</b></td>
-                      <td class="text-right">R$ 100</td>
-                    </tr>
-                    <tr>
-                      <td><b>Desconto</b></td>
-                      <td>
-                        <div class="text-right d-flex">
-                          <v-text-field
-                              variant="outlined"
-                              density="compact"
-                              hide-details
-                              class="mr-2"
-                          />
-
-                          <v-select
-                              variant="outlined"
-                              density="compact"
-                              :items="['%', 'R$']"
-                              hide-details
-                              style="max-width: 90px"
-                          />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><b>Total</b></td>
-                      <td class="text-right">R$ 50</td>
-                    </tr>
-                    </tbody>
-                  </v-table>
-                </v-card>
+                <OSTotal />
               </v-col>
             </v-row>
           </div>
@@ -98,6 +64,7 @@ import {ref} from 'vue';
 import OSDetails from './components/OSDetails.vue';
 import OSClient from './components/OSClient.vue';
 import OSServices from './components/OSServices.vue';
+import OSTotal from './components/OSTotal.vue';
 
 const serviceOrderStore = useServiceOrderStore()
 </script>

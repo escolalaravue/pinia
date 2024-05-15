@@ -20,8 +20,8 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
       },
     ],
     description: '',
-    discount_type: 'R$',
-    discount_value: 0,
+    discountType: 'R$',
+    discountValue: 0,
   }),
 
   actions: {
@@ -38,5 +38,13 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
     },
   },
 
-  getters: {},
+  getters: {
+    subtotal(state) {
+      return state
+        .services
+        .reduce((total, o) => {
+          return total += o.price * o.qty
+        }, 0)
+    },
+  },
 })

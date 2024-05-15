@@ -1,5 +1,4 @@
 <template>
-  <pre>{{services}}</pre>
   <h2 class="mb-2">Dados do pedido</h2>
 
   <v-table>
