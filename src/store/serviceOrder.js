@@ -32,6 +32,10 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
         qty: 0,
       })
     },
+
+    deleteService(index) {
+      this.services.splice(index, 1);
+    },
   },
 
   getters: {},

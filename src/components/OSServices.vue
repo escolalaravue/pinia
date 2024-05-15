@@ -56,6 +56,7 @@
               icon="mdi-trash-can-outline"
               size="small"
               variant="plain"
+              @click="serviceOrderStore.deleteService(index)"
           />
         </div>
       </td>
