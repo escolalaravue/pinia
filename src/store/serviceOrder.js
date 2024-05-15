@@ -5,7 +5,7 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
     orderDetails: {
       number: 0,
       due_date: null,
-      status: ''
+      status: '',
     },
     client: {
       name: '',
@@ -21,10 +21,18 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
     ],
     description: '',
     discount_type: 'R$',
-    discount_value: 0
+    discount_value: 0,
   }),
 
-  actions: {},
+  actions: {
+    addService() {
+      this.services.push({
+        description: '',
+        price: 0,
+        qty: 0,
+      })
+    },
+  },
 
-  getters: {}
+  getters: {},
 })

@@ -29,7 +29,7 @@
           </div>
 
           <div class="mt-8">
-            <ODServices />
+            <OSServices />
           </div>
 
           <div class="mt-6">
@@ -97,7 +97,7 @@ import {useServiceOrderStore} from './store/serviceOrder.js';
 import {ref} from 'vue';
 import OSDetails from './components/OSDetails.vue';
 import OSClient from './components/OSClient.vue';
-import ODServices from './components/ODServices.vue';
+import OSServices from './components/OSServices.vue';
 
 const serviceOrderStore = useServiceOrderStore()
 </script>

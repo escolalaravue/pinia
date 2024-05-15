@@ -67,6 +67,7 @@
     <v-btn
         color="primary"
         variant="tonal"
+        @click="serviceOrderStore.addService"
     >Adicionar item
     </v-btn>
   </div>
