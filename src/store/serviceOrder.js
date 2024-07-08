@@ -46,5 +46,17 @@ export const useServiceOrderStore = defineStore('serviceOrder', {
           return total += o.price * o.qty
         }, 0)
     },
+
+    total(state) {
+      if (state.discountType === 'R$') {
+        return state.subtotal - state.discountValue
+      }
+
+      if (state.discountType === '%') {
+        return state.subtotal - (state.subtotal * state.discountValue / 100)
+      }
+
+      return state.subtotal
+    }
   },
 })

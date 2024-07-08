@@ -1,7 +1,4 @@
 <template>
-  <pre>
-    {{serviceOrderStore}}
-  </pre>
   <v-app>
     <v-layout>
       <v-app-bar class="text-center">
@@ -36,6 +33,7 @@
             <v-row>
               <v-col>
                 <v-textarea
+                    v-model="description"
                     label="Descrição da ordem de serviço"
                     hide-details
                     variant="outlined"
@@ -65,6 +63,8 @@ import OSDetails from './components/OSDetails.vue';
 import OSClient from './components/OSClient.vue';
 import OSServices from './components/OSServices.vue';
 import OSTotal from './components/OSTotal.vue';
+import {storeToRefs} from 'pinia';
 
 const serviceOrderStore = useServiceOrderStore()
+const {description} = storeToRefs(serviceOrderStore)
 </script>

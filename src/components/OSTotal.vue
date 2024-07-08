@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <td><b>Total</b></td>
-        <td class="text-right">R$ 50</td>
+        <td class="text-right">R$ {{ total }}</td>
       </tr>
       </tbody>
     </v-table>
@@ -43,5 +43,5 @@ import {useServiceOrderStore} from '../store/serviceOrder.js';
 import {storeToRefs} from 'pinia';
 
 const serviceOrderStore = useServiceOrderStore()
-const {subtotal, discountType, discountValue} = storeToRefs(serviceOrderStore)
+const {subtotal, total, discountType, discountValue} = storeToRefs(serviceOrderStore)
 </script>
