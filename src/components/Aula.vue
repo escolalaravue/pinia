@@ -9,12 +9,13 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['lessons-count'])
-defineProps({
-  course: Object
-})
+import {useCourseStore} from '../store/course.js';
+import {storeToRefs} from 'pinia';
+
+const courseStore = useCourseStore()
+const {course} = storeToRefs(courseStore)
 
 function update() {
-  emit('lessons-count', 10)
+  course.value.lessons_count = 10
 }
 </script>

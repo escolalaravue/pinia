@@ -2,22 +2,14 @@
   <div>
     <h2>Curso de Pinia</h2>
 
-    <Modules
-      :course="course"
-      @lessons-count="update"
-    />
+    <Modules/>
   </div>
 </template>
 <script setup>
 import Modules from './Modules.vue';
-import {ref} from 'vue';
+import {useCourseStore} from '../store/course.js';
+import {storeToRefs} from 'pinia';
 
-const course = ref({
-  name: 'Curso de Pinia',
-  lessons_count: 20
-})
-
-function update(vl) {
-  course.value.lessons_count = vl
-}
+const courseStore = useCourseStore()
+const {course} = storeToRefs(courseStore)
 </script>
